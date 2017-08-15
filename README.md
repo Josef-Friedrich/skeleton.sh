@@ -1,4 +1,6 @@
-# Run tests
+# Project name
+
+## Testing
 
 ```
 make test
