@@ -1,9 +1,12 @@
+wget_github = wget -O $(1) https://raw.githubusercontent.com/$(2) ; \
+		chmod a+x $(1)
+
 test:
-	./test/bash_unit test/*.bash_unit
+	#./test/bash_unit test/*.bash_unit
+	bats test
 
 sync_dependencies:
-	wget -O test/bash_unit https://raw.githubusercontent.com/pgrange/bash_unit/master/bash_unit ; \
-	chmod a+x test/bash_unit ; \
-	wget -O test/test-helper.sh https://raw.githubusercontent.com/JosefFriedrich-shell/test-helper/master/test-helper.sh
+	$(call wget_github,test/bash_unit,pgrange/bash_unit/master/bash_unit)
+	$(call wget_github,test/test-helper.sh,JosefFriedrich-shell/test-helper/master/test-helper.sh)
 
 .PHONY: test sync_dependencies
