@@ -1,0 +1,5 @@
+#! /bin/sh
+
+echo 'This is command1!'
+
+exit 69
