@@ -1,10 +1,14 @@
 #! /bin/sh
 
 # bash_unit
+echo "
+Running bash_unit tests:"
 ./test/lib/bash_unit test/*.bash_unit
 RETURN_BASH_UNIT=$?
 
 # bats
+echo "
+Running bats tests:"
 ./test/lib/bats/bats test
 ## or:
 # bats test
