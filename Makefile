@@ -2,6 +2,8 @@ wget_github = wget -O $(1) https://raw.githubusercontent.com/$(2) ; \
 	chmod a+x $(1)
 
 test:
+	echo -e "PATH: $(PATH)\n"
+	echo -e "PWD: $(shell pwd)\n"
 	#./test/bash_unit test/*.bash_unit
 	bats test
 
