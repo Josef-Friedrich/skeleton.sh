@@ -2,7 +2,7 @@
 
 _get() {
 	mkdir -p "(dirname "$1")"
-	wget -O "$1" "https://raw.githubusercontent.com/JosefFriedrich-shell/skeleton/master/test/$2"
+	wget -O "$1" "https://raw.githubusercontent.com/$2"
 }
 
 _get test/lib/bash_unit pgrange/bash_unit/master/bash_unit
