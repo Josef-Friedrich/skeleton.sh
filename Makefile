@@ -7,11 +7,11 @@ test:
 	@echo "PWD: $(shell pwd)"
 	@echo
 
-	#./test/bash_unit test/*.bash_unit
+	#./test/lib/bash_unit test/*.bash_unit
 	bats test
 
 sync_dependencies:
-	$(call wget_github,test/bash_unit,pgrange/bash_unit/master/bash_unit)
-	$(call wget_github,test/test-helper.sh,JosefFriedrich-shell/test-helper/master/test-helper.sh)
+	$(call wget_github,test/lib/bash_unit,pgrange/bash_unit/master/bash_unit)
+	$(call wget_github,test/lib/test-helper.sh,JosefFriedrich-shell/test-helper/master/test-helper.sh)
 
 .PHONY: test sync_dependencies
