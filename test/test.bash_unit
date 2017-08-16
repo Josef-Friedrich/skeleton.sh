@@ -1,0 +1,9 @@
+#! /bin/sh
+
+test_assert_succeed() {
+	assert true
+}
+
+test_assert_succeed_message() {
+	assert true "this test passes"
+}

@@ -7,7 +7,7 @@ test:
 	@echo "PWD: $(shell pwd)"
 	@echo
 
-	#./test/lib/bash_unit test/*.bash_unit
+	./test/lib/bash_unit test/*.bash_unit
 	bats test
 
 sync_dependencies:
