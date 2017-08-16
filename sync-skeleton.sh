@@ -19,6 +19,8 @@ _get test/lib/test-helper.sh
 chmod a+x test.sh
 chmod a+x test/lib/bats/bats
 chmod a+x test/lib/bash_unit
+chmod a+x test/lib/bats/bats-exec-test
+chmod a+x test/lib/bats/bats-format-tap-stream
 
 rm -f test/bash_unit
 rm -f test/test-helper.sh
