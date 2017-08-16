@@ -1,5 +1,5 @@
 wget_github = wget -O $(1) https://raw.githubusercontent.com/$(2) ; \
-		chmod a+x $(1)
+	chmod a+x $(1)
 
 test:
 	#./test/bash_unit test/*.bash_unit
