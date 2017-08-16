@@ -1,7 +1,7 @@
 #! /bin/sh
 
 _get() {
-	mkdir -p "(dirname "$1")"
+	mkdir -p "$(dirname "$1")"
 	wget -O "$1" "https://raw.githubusercontent.com/JosefFriedrich-shell/skeleton/master/test/$1"
 }
 
