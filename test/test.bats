@@ -2,7 +2,7 @@
 
 setup() {
 	. ./test/lib/test-helper.sh
-	mock_path $(pwd)/test/bin
+	mock_path test/bin
 }
 
 @test "run" {
@@ -31,4 +31,9 @@ setup() {
 	run command1
 	[ "$status" -eq 0 ]
 	[ "${lines[0]}" = 'This is command1!' ]
+}
+
+@test "source_exec" {
+	source_exec ./sync-dependencies.sh
+	[ "$(command -v _get)" = '_get' ]
 }
