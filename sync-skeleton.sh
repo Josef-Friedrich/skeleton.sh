@@ -2,7 +2,7 @@
 
 _get() {
 	mkdir -p "$(dirname "$1")"
-	wget -O "$1" "https://raw.githubusercontent.com/JosefFriedrich-shell/skeleton/master/test/$1"
+	wget -O "$1" "https://raw.githubusercontent.com/JosefFriedrich-shell/skeleton/master/$1"
 }
 
 _get .travis.yml
