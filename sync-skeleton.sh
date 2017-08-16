@@ -20,3 +20,4 @@ chmod a+x test.sh
 
 rm -f test/bash_unit
 rm -f test/test-helper.sh
+rm -f sync-skeleton.sh
