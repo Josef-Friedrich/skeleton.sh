@@ -13,5 +13,5 @@
 @test "skip" {
 	skip
 	result="$(echo 2*2 | bc)"
-	[ "$result" -eq 4 ]
+	[ "$result" -eq 3 ]
 }
