@@ -1,0 +1,5 @@
+#! /bin/sh
+
+echo 'Faaail!' >&2
+
+exit 69

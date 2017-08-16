@@ -5,6 +5,8 @@ _get() {
 	wget -O "$1" "https://raw.githubusercontent.com/$2"
 }
 
+## This SEPARATOR is required for test purposes. Please don’t remove! ##
+
 _get test/lib/bash_unit pgrange/bash_unit/master/bash_unit
 _get test/lib/test-helper.sh JosefFriedrich-shell/test-helper/master/test-helper.sh
 

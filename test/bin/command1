@@ -2,4 +2,4 @@
 
 echo 'This is command1!'
 
-exit 69
+exit 0

@@ -5,6 +5,8 @@ _get() {
 	wget -O "$1" "https://raw.githubusercontent.com/JosefFriedrich-shell/skeleton/master/$1"
 }
 
+## This SEPARATOR is required for test purposes. Please don’t remove! ##
+
 _get .travis.yml
 _get Makefile
 _get test.sh

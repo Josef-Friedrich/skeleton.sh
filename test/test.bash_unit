@@ -1,9 +1,21 @@
 #! /bin/sh
 
+. ./lib/test-helper.sh
+
 test_assert_succeed() {
 	assert true
 }
 
 test_assert_succeed_message() {
 	assert true "this test passes"
+}
+
+test_mock_path() {
+	mock_path bin
+	assert_equals "$(command1)" 'This is command1!'
+}
+
+test_source_exec() {
+	source_exec ../sync-dependencies.sh
+	assert_equals "$(command -v _get)" '_get'
 }

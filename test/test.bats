@@ -29,6 +29,6 @@ setup() {
 
 @test "mock_path" {
 	run command1
-	[ "$status" -eq 69 ]
+	[ "$status" -eq 0 ]
 	[ "${lines[0]}" = 'This is command1!' ]
 }
