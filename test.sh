@@ -1,9 +1,13 @@
 #! /bin/sh
 
+# bash_unit
 ./test/lib/bash_unit test/*.bash_unit
 RETURN_BASH_UNIT=$?
 
-bats test
+# bats
+./test/lib/bats/bats test
+## or:
+# bats test
 RETURN_BATS=$?
 
 if [ 0 -eq "$RETURN_BASH_UNIT" ] && [ 0 -eq "$RETURN_BATS" ] ; then
