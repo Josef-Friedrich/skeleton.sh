@@ -17,6 +17,7 @@ _get test/lib/bats/bats-preprocess
 _get test/lib/test-helper.sh
 
 chmod a+x test.sh
+chmod a+x test/lib/bats/bats
 
 rm -f test/bash_unit
 rm -f test/test-helper.sh
