@@ -2,13 +2,22 @@
 
 # skeleton
 
+## Summary / Short description
+
+> A short description of what this command does.
+
 ## Usage
 
 ```
 Usage: This is a example script
 
+A short description of what this command does.
+
 Options:
-	- h: Show this help message
+	-h, --help
+	  Show this help message
+	-s, --short-description
+	  Show a short description / summary
 ```
 
 ## Testing

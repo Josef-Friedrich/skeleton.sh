@@ -23,39 +23,40 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-_description() {
-	echo "A short description of what this command does."
+_short_description() {
+	echo 'A short description of what this command does.'
 }
 
 _usage() {
 	echo "Usage: This is a example script
 
-$(_description)
+$(_short_description)
 
 Options:
-	-h: Show this help message
-	--description: Show a short description
-	"
+	-h, --help
+	  Show this help message
+	-s, --short-description
+	  Show a short description / summary"
 }
 
 _getopts() {
-	while getopts :h-: OPT; do
+	while getopts ':hs-:' OPT ; do
 		case $OPT in
 			h) _usage ; exit 0 ;;
+			s) _short_description ; exit 0 ;;
 			-)
 				case $OPTARG in
-					description) _description ; exit 0 ;;
 					help) _usage ; exit 0 ;;
+					short-description) _short_description ; exit 0 ;;
 					'') break ;;
-					*) echo "Illegal option --$OPTARG" >&2; exit 2 ;;
+					*) echo "Invalid option “--$OPTARG”!" >&2 ; exit 2 ;;
 				esac ;;
-			\?) _usage ; exit 2 ;;
-
+			\?) echo "Invalid option “-$OPTARG”!" >&2 ; exit 2 ;;
 			*) _usage ; exit 2 ;;
 		esac
 	done
-	shift $((OPTIND - 1))
-	IMAGES=$@
 }
+
+## This SEPARATOR is required for test purposes. Please don’t remove! ##
 
 _getopts $@
