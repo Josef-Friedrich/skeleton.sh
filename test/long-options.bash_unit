@@ -17,7 +17,6 @@ test_long_missing_arg() {
 	assert_fails "_getopts --bravo"
 }
 
-
 test_long_no_arg_allowed() {
 	assert_fails "_getopts --alpha=lol"
 }
