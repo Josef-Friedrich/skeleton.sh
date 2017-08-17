@@ -60,3 +60,5 @@ _getopts() {
 ## This SEPARATOR is required for test purposes. Please don’t remove! ##
 
 _getopts $@
+
+echo 'This command does nothing useful!'

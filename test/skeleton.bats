@@ -1,5 +1,15 @@
 #!/usr/bin/env bats
 
+setup() {
+	. ./test/lib/test-helper.sh
+}
+
+@test "run ./skeleton" {
+	run ./skeleton
+	[ "$status" -eq 0 ]
+	[ "${lines[0]}" = 'This command does nothing useful!' ]
+}
+
 @test "run ./skeleton -h" {
 	run ./skeleton -h
 	[ "$status" -eq 0 ]
