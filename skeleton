@@ -1,7 +1,61 @@
 #! /bin/sh
 
-echo "Usage: This is a example script
+# MIT License
+#
+# Copyright (c) 2017 Josef Friedrich <josef@friedrich.rocks>
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+# CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+# TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+_description() {
+	echo "A short description of what this command does."
+}
+
+_usage() {
+	echo "Usage: This is a example script
+
+$(_description)
 
 Options:
-	- h: Show this help message
-"
+	-h: Show this help message
+	--description: Show a short description
+	"
+}
+
+_getopts() {
+	while getopts :h-: OPT; do
+		case $OPT in
+			h) _usage ; exit 0 ;;
+			-)
+				case $OPTARG in
+					description) _description ; exit 0 ;;
+					help) _usage ; exit 0 ;;
+					'') break ;;
+					*) echo "Illegal option --$OPTARG" >&2; exit 2 ;;
+				esac ;;
+			\?) _usage ; exit 2 ;;
+
+			*) _usage ; exit 2 ;;
+		esac
+	done
+	shift $((OPTIND - 1))
+	IMAGES=$@
+}
+
+_getopts $@
