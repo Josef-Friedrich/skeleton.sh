@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 # See https://stackoverflow.com/a/28466267
 
@@ -6,7 +6,7 @@ _getopts() {
 	OPT_ALPHA=
 	OPT_BRAVO=
 	OPT_CHARLIE=
-	while getopts ab:c-: OPT; do
+	while getopts :ab:c-: OPT ; do
 		case $OPT in
 			a)
 				OPT_ALPHA=1
@@ -33,28 +33,38 @@ _getopts() {
 						;;
 
 					bravo*)
-						echo "No arg for --$OPTARG option" >&2; exit 2 ;;
+						echo "Option --$OPTARG requires an argument." >&2
+						exit 2
+						;;
 
 					charlie)
 						OPT_CHARLIE=1
 						;;
 
 					alpha* | charlie*)
-						echo "No arg allowed for --$OPTARG option" >&2; exit 2 ;;
+						echo "No arg allowed for --$OPTARG option" >&2
+						exit 2
+						;;
 
-					'')
-						break ;; # "--" terminates argument processing
+					'')	# "--" terminates argument processing
+						break
+						;;
 
 					*)
-						echo "Illegal option --$OPTARG" >&2; exit 2 ;;
+						echo "Invalid option --$OPTARG" >&2
+						exit 2
+						;;
 
 					 esac ;;
+
 			\?)
-				exit 2
-				;;  # getopts already reported the illegal option
+				echo "Invalid option -$OPTARG" >&2
+				exit 1
+				;;
 
 			:)
-				echo "Option -$OPTARG requires an argument." >&2; exit 1
+				echo "Option -$OPTARG requires an argument." >&2
+				exit 2
 				;;
 		esac
 	done

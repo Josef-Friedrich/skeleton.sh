@@ -64,3 +64,14 @@ setup() {
 	[ "$OPT_BRAVO" = lol ]
 	[ "$OPT_CHARLIE" -eq 1 ]
 }
+
+##
+#
+##
+
+@test "./examples/long-options.sh _getopts -x" {
+	#_getopts -x || :
+	[ -z "$OPT_ALPHA" ]
+	[ -z "$OPT_BRAVO" ]
+	[ -z "$OPT_CHARLIE" ]
+}

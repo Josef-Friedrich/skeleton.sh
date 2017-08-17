@@ -1,0 +1,27 @@
+#! /bin/sh
+
+setup() {
+	. ./lib/test-helper.sh
+	source_exec ./../examples/long-options.sh
+}
+
+test_invalid_arg() {
+	assert_fails "_getopts -x"
+}
+
+test_missing_arg() {
+	assert_fails "_getopts -b"
+}
+
+test_long_missing_arg() {
+	assert_fails "_getopts --bravo"
+}
+
+
+test_long_no_arg_allowed() {
+	assert_fails "_getopts --alpha=lol"
+}
+
+test_long_invalid_arg() {
+	assert_fails "_getopts --xxx"
+}
