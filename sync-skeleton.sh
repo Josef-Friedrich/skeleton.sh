@@ -25,8 +25,8 @@ _rm() {
 _get .travis.yml
 _get Makefile
 _get test/lib/test-helper.sh
+_getif LICENSE
 _getif README.md.template.sh
-_getx test.sh
 _getx test/lib/bash_unit
 _getx test/lib/bats/bats
 _getx test/lib/bats/bats-exec-suite
