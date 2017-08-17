@@ -40,7 +40,7 @@ setup() {
 # Long options
 ##
 
-@test "./examples/long-options.sh _getopts -a" {
+@test "./examples/long-options.sh _getopts --alpha" {
 	source_exec ./examples/long-options.sh
 	_getopts --alpha
 	[ "$OPT_ALPHA" -eq 1 ]
@@ -48,7 +48,7 @@ setup() {
 	[ -z "$OPT_CHARLIE" ]
 }
 
-@test "./examples/long-options.sh _getopts -b lol" {
+@test "./examples/long-options.sh _getopts --bravo=lol" {
 	source_exec ./examples/long-options.sh
 	_getopts --bravo=lol
 	[ -z "$OPT_ALPHA" ]
@@ -56,7 +56,7 @@ setup() {
 	[ -z "$OPT_CHARLIE" ]
 }
 
-@test "./examples/long-options.sh _getopts -ac" {
+@test "./examples/long-options.sh _getopts --alpha --charlie" {
 	source_exec ./examples/long-options.sh
 	_getopts --alpha --charlie
 	[ "$OPT_ALPHA" -eq 1 ]
@@ -64,7 +64,7 @@ setup() {
 	[ "$OPT_CHARLIE" -eq 1 ]
 }
 
-@test "./examples/long-options.sh _getopts -ac" {
+@test "./examples/long-options.sh _getopts --alpha --bravo=lol --charlie" {
 	source_exec ./examples/long-options.sh
 	_getopts --alpha --bravo=lol --charlie
 	[ "$OPT_ALPHA" -eq 1 ]
