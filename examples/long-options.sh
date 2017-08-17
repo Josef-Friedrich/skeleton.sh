@@ -7,7 +7,7 @@
 # Missing argument: 3
 # No argument allowed: 4
 _getopts() {
-	while getopts :ab:c-: OPT ; do
+	while getopts ':ab:c-:' OPT ; do
 		case $OPT in
 			a)
 				OPT_ALPHA=1
