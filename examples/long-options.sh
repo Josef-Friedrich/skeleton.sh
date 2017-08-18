@@ -43,18 +43,20 @@ _getopts() {
 						OPT_BRAVO="$LONG_OPTARG"
 						;;
 
-					bravo*)
-						echo "Option “--$OPTARG” requires an argument!" >&2
-						exit 3
-						;;
+
 
 					charlie)
 						OPT_CHARLIE=1
 						;;
 
-					alpha* | charlie*)
+					alpha*|charlie*)
 						echo "No argument allowed for the option “--$OPTARG”!" >&2
 						exit 4
+						;;
+
+					bravo*)
+						echo "Option “--$OPTARG” requires an argument!" >&2
+						exit 3
 						;;
 
 					'')	# "--" terminates argument processing
