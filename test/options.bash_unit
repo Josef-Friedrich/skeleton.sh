@@ -2,7 +2,7 @@
 
 setup() {
 	. ./lib/test-helper.sh
-	source_exec ./../examples/long-options.sh
+	source_exec ../skeleton.sh
 }
 
 test_invalid_arg() {
