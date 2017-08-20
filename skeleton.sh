@@ -33,6 +33,13 @@ Usage: $(basename "$0") [-hsv]
 
 $SHORT_DESCRIPTION
 
+Options:
+	-h, --help
+	  Show this help message
+	-s, --short-description
+	  Show a short description / summary
+	-v, --version
+	  Show the version number of this script.
 "
 
 # See https://stackoverflow.com/a/28466267
