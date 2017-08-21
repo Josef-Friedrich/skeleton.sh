@@ -26,7 +26,6 @@ _get .travis.yml
 _get Makefile
 _get test/lib/test-helper.sh
 _getif LICENSE
-_getif README.md.template.sh
 _getx test/lib/bash_unit
 _getx test/lib/bats/bats
 _getx test/lib/bats/bats-exec-suite
@@ -36,6 +35,7 @@ _getx test/lib/bats/bats-preprocess
 _getx test/lib/render-readme.sh
 _getx test/lib/test-runner.sh
 
+_rm README.md.template.sh
 _rm sync-skeleton.sh
 _rm test.sh
 _rm test/bash_unit
