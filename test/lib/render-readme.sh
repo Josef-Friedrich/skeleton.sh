@@ -4,7 +4,7 @@ PROJECT_NAME="$(basename "$(pwd)")"
 
 . ./test/lib/test-helper.sh
 
-source_exec skeleton.sh
+source_exec ./$PROJECT_NAME
 
 > README.md
 
