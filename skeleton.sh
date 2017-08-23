@@ -26,10 +26,10 @@
 FIRST_RELEASE=2017-08-13
 VERSION=1.0
 PROJECT_PAGES="https://github.com/JosefFriedrich-shell/skeleton"
-SHORT_DESCRIPTION='This is an example script of the skeleton.sh project!'
+SHORT_DESCRIPTION='This is the management script of the skeleton.sh project!'
 USAGE="$(basename "$0") v$VERSION
 
-Usage: $(basename "$0") [-hsv]
+Usage: $(basename "$0") [-hrsv]
 
 $SHORT_DESCRIPTION
 
@@ -247,6 +247,7 @@ EOF
 
 	echo >> README.md
 	[ -f README-footer.md ] && cat README-footer.md >> README.md
+	cat README.md
 }
 
 ## This SEPARATOR is required for test purposes. Please don’t remove! ##
@@ -256,8 +257,6 @@ shift $GETOPTS_SHIFT
 
 [ -n "$1" ] && echo "Parameter 1: $1"
 [ -n "$2" ] && echo "Parameter 2: $2"
-
-[ "$OPT_README" = 1 ] && _render_readme
 
 cat <<EOF
       .-.
@@ -275,3 +274,7 @@ cat <<EOF
      || ||
     ==' '==
 EOF
+
+[ "$OPT_README" = 1 ] && _render_readme
+
+exit 0

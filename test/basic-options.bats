@@ -26,11 +26,11 @@ setup() {
 @test "run ./skeleton.sh -s" {
 	run ./skeleton.sh -s
 	[ "$status" -eq 0 ]
-	[ "${lines[0]}" = 'This is an example script of the skeleton.sh project!' ]
+	[ "${lines[0]}" = 'This is the management script of the skeleton.sh project!' ]
 }
 
 @test "run ./skeleton.sh --short-description" {
 	run ./skeleton.sh --short-description
 	[ "$status" -eq 0 ]
-	[ "${lines[0]}" = 'This is an example script of the skeleton.sh project!' ]
+	[ "${lines[0]}" = 'This is the management script of the skeleton.sh project!' ]
 }

@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/JosefFriedrich-shell/skeleton.svg?branch=master)](https://travis-ci.org/JosefFriedrich-shell/skeleton)
+[![Build Status](https://travis-ci.org/JosefFriedrich-shell/skeleton.sh.svg?branch=master)](https://travis-ci.org/JosefFriedrich-shell/skeleton.sh)
 
-# skeleton
+# skeleton.sh
 
 ---
 
@@ -20,20 +20,22 @@ mollit anim id est laborum.
 
 ## Summary / Short description
 
-> This is an example script of the skeleton.sh project!
+> This is the management script of the skeleton.sh project!
 
 ## Usage
 
 ```
-render-readme.sh v1.0
+skeleton.sh v1.0
 
-Usage: render-readme.sh [-hsv]
+Usage: skeleton.sh [-hrsv]
 
-This is an example script of the skeleton.sh project!
+This is the management script of the skeleton.sh project!
 
 Options:
 	-h, --help
 	  Show this help message
+	-r, --render-readme
+	  Render “README.md”.
 	-s, --short-description
 	  Show a short description / summary
 	-v, --version
