@@ -10,8 +10,7 @@ test:
 	./test/lib/test-runner.sh
 
 readme:
-	./test/lib/render-readme.sh > README.md
-	cat README.md
+	./test/lib/skeleton.sh --render-readme
 
 sync_skeleton:
 	mkdir -p test/lib
