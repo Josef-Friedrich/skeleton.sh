@@ -14,9 +14,9 @@ readme:
 	cat README.md
 
 sync_skeleton:
-	wget -O sync-skeleton.sh https://raw.githubusercontent.com/JosefFriedrich-shell/skeleton.sh/master/sync-skeleton.sh
-	chmod a+x sync-skeleton.sh
-	./sync-skeleton.sh
-	rm -f sync-skeleton.sh
+	mkdir -p test/lib
+	wget -O test/lib/skeleton.sh https://raw.githubusercontent.com/JosefFriedrich-shell/skeleton.sh/master/skeleton.sh
+	chmod a+x test/lib/skeleton.sh
+	./test/lib/skeleton.sh --sync-skeleton
 
 .PHONY: test sync_skeleton readme
