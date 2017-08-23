@@ -27,11 +27,14 @@ mollit anim id est laborum.
 ```
 skeleton.sh v1.0
 
-Usage: skeleton.sh [-dhrSsv]
+Usage: skeleton.sh [-AdhrSsv]
 
 This is the management script of the skeleton.sh project!
 
 Options:
+	-A, --sync-all
+	  Sync all projects that have the same parent folder as this
+	  project.
 	-d, --sync-dependencies
 	  Sync external dependenices (e. g. test-helper.sh bats)
 	-h, --help
