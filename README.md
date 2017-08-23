@@ -27,15 +27,20 @@ mollit anim id est laborum.
 ```
 skeleton.sh v1.0
 
-Usage: skeleton.sh [-hrsv]
+Usage: skeleton.sh [-dhrSsv]
 
 This is the management script of the skeleton.sh project!
 
 Options:
+	-d, --sync-dependencies
+	  Sync external dependenices (e. g. test-helper.sh bats)
 	-h, --help
 	  Show this help message
 	-r, --render-readme
 	  Render “README.md”.
+	-S, -sync-skeleton
+	  Sync your project with the skeleton project and update some
+	  boilerplate files (e. g. Makefile test/lib/skeleton.sh)
 	-s, --short-description
 	  Show a short description / summary
 	-v, --version

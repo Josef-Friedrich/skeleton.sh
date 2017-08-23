@@ -29,15 +29,20 @@ PROJECT_PAGES="https://github.com/JosefFriedrich-shell/skeleton"
 SHORT_DESCRIPTION='This is the management script of the skeleton.sh project!'
 USAGE="$(basename "$0") v$VERSION
 
-Usage: $(basename "$0") [-hrsv]
+Usage: $(basename "$0") [-dhrSsv]
 
 $SHORT_DESCRIPTION
 
 Options:
+	-d, --sync-dependencies
+	  Sync external dependenices (e. g. test-helper.sh bats)
 	-h, --help
 	  Show this help message
 	-r, --render-readme
 	  Render “README.md”.
+	-S, -sync-skeleton
+	  Sync your project with the skeleton project and update some
+	  boilerplate files (e. g. Makefile test/lib/skeleton.sh)
 	-s, --short-description
 	  Show a short description / summary
 	-v, --version
@@ -53,7 +58,7 @@ PROJECT_NAME="$(basename "$(pwd)")"
 # Missing argument: 3
 # No argument allowed: 4
 _getopts() {
-	while getopts ':ab:chrsv-:' OPT ; do
+	while getopts ':ab:cdhrsv-:' OPT ; do
 		case $OPT in
 			a)
 				OPT_ALPHA=1
@@ -67,6 +72,7 @@ _getopts() {
 				OPT_CHARLIE=1
 				;;
 
+			d) OPT_DEPENDENCIES=1;;
 			h) echo "$USAGE"; exit 0;;
 			r) OPT_README=1;;
 			s) echo "$SHORT_DESCRIPTION"; exit 0;;
@@ -98,6 +104,8 @@ _getopts() {
 						OPT_CHARLIE=1
 						;;
 
+					sync-dependencies) OPT_DEPENDENCIES=1;;
+
 					alpha*|charlie*)
 						echo "No argument allowed for the option “--$OPTARG”!" >&2
 						exit 4
@@ -113,7 +121,7 @@ _getopts() {
 					short-description) echo "$SHORT_DESCRIPTION"; exit 0;;
 					version) echo "$VERSION"; exit 0;;
 
-					help*|short-description*|version*)
+					sync-dependencies*|help*|render-readme*|short-description*|version*)
 						echo "No argument allowed for the option “--$OPTARG”!" >&2
 						exit 4
 						;;
@@ -182,7 +190,6 @@ _sync_dependencies() {
 		mkdir -p "$(dirname "$1")"
 		wget -O "$1" "https://raw.githubusercontent.com/$2"
 	}
-
 
 	_get test/lib/bash_unit pgrange/bash_unit/master/bash_unit
 	_get test/lib/test-helper.sh JosefFriedrich-shell/test-helper.sh/master/test-helper.sh
@@ -275,6 +282,7 @@ cat <<EOF
     ==' '==
 EOF
 
+[ "$OPT_DEPENDENCIES" = 1 ] && _sync_dependencies
 [ "$OPT_README" = 1 ] && _render_readme
 
 exit 0
