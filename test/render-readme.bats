@@ -29,6 +29,14 @@ setup() {
 	grep 'make test' README.md
 }
 
+@test "make readme" {
+	rm -f README.md
+	run make readme
+	[ "$status" -eq 0 ]
+	[ -f README.md ]
+	grep 'make test' README.md
+}
+
 @test "./skeleton.sh --render-readme=lol" {
 	run ./skeleton.sh --render-readme=lol
 	[ "$status" -eq 4 ]
