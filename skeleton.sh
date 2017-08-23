@@ -154,7 +154,12 @@ _sync_all() {
 	PROJECTS=$(find .. -maxdepth 1 -type d | sed 1d)
 	for PROJECT in $PROJECTS; do
 		cd $PROJECT
-		pwd
+
+		echo "
+###
+# $(pwd)
+###"
+		_sync_skeleton
 		git add -Av
 		git commit -m 'Sync with skeleton'
 		git push
