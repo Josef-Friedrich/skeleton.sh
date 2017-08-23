@@ -29,11 +29,14 @@ PROJECT_PAGES="https://github.com/JosefFriedrich-shell/skeleton"
 SHORT_DESCRIPTION='This is the management script of the skeleton.sh project!'
 USAGE="$(basename "$0") v$VERSION
 
-Usage: $(basename "$0") [-dhrSsv]
+Usage: $(basename "$0") [-AdhrSsv]
 
 $SHORT_DESCRIPTION
 
 Options:
+	-A, --sync-all
+	  Sync all projects that have the same parent folder as this
+	  project.
 	-d, --sync-dependencies
 	  Sync external dependenices (e. g. test-helper.sh bats)
 	-h, --help
@@ -58,8 +61,9 @@ PROJECT_NAME="$(basename "$(pwd)")"
 # Missing argument: 3
 # No argument allowed: 4
 _getopts() {
-	while getopts ':ab:cdhrSsv-:' OPT ; do
+	while getopts ':Aab:cdhrSsv-:' OPT ; do
 		case $OPT in
+			A) OPT_ALL=1;;
 			a)
 				OPT_ALPHA=1
 				;;
@@ -93,6 +97,7 @@ _getopts() {
 				LONG_OPTARG="${OPTARG#*=}"
 
 				case $OPTARG in
+					sync-all) OPT_ALL=1;;
 					alpha)
 						OPT_ALPHA=1
 						;;
@@ -143,6 +148,22 @@ _getopts() {
 		esac
 	done
 	GETOPTS_SHIFT=$((OPTIND - 1))
+}
+
+_sync_all() {
+	PROJECTS=$(find .. -maxdepth 1 -type d | sed 1d)
+	for PROJECT in $PROJECTS; do
+		cd $PROJECT
+
+		echo "
+###
+# $(pwd)
+###"
+		_sync_skeleton
+		git add -Av
+		git commit -m 'Sync with skeleton'
+		git push
+	done
 }
 
 _sync_skeleton() {
@@ -286,6 +307,7 @@ cat <<EOF
     ==' '==
 EOF
 
+[ "$OPT_ALL" = 1 ] && _sync_all
 [ "$OPT_DEPENDENCIES" = 1 ] && _sync_dependencies
 [ "$OPT_README" = 1 ] && _render_readme
 [ "$OPT_SKELETON" = 1 ] && _sync_skeleton
