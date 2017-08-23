@@ -257,7 +257,7 @@ shift $GETOPTS_SHIFT
 [ -n "$1" ] && echo "Parameter 1: $1"
 [ -n "$2" ] && echo "Parameter 2: $2"
 
-[ "$OPT_README" -eq 1 ] && _render_readme
+[ "$OPT_README" = 1 ] && _render_readme
 
 cat <<EOF
       .-.
