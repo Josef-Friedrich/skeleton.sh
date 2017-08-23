@@ -16,7 +16,6 @@ setup() {
 }
 
 @test "./skeleton.sh -d" {
-	skip
 	run ./skeleton.sh -d
 	[ "$status" -eq 0 ]
 	[ -d test/lib/bats ]

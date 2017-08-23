@@ -15,12 +15,15 @@ setup() {
 	[ "$OPT_SKELETON" -eq 1 ]
 }
 
-# @test "./skeleton.sh --sync-dependencies" {
-# 	run ./skeleton.sh --sync-dependencies
-# 	[ "$status" -eq 0 ]
-# 	[ -d test/lib/bats ]
-# 	[ -f test/lib/test-helper.sh ]
-# }
+@test "./skeleton.sh --sync-skeleton" {
+	run ./skeleton.sh --sync-skeleton
+	[ "$status" -eq 0 ]
+}
+
+@test "make sync_skeleton" {
+	run make sync_skeleton
+	[ "$status" -eq 0 ]
+}
 
 @test "./skeleton.sh --sync-skeleton=lol" {
 	run ./skeleton.sh --sync-skeleton=lol
