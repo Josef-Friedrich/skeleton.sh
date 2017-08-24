@@ -48,6 +48,8 @@ Options:
 	  boilerplate files (e. g. Makefile test/lib/skeleton.sh)
 	-s, --short-description
 	  Show a short description / summary
+	-t, --test
+	  Run the tests located in the “test” folder.
 	-v, --version
 	  Show the version number of this script.
 "
@@ -61,7 +63,7 @@ PROJECT_NAME="$(basename "$(pwd)")"
 # Missing argument: 3
 # No argument allowed: 4
 _getopts() {
-	while getopts ':Aab:cdhrSsv-:' OPT ; do
+	while getopts ':Aab:cdhrSstv-:' OPT ; do
 		case $OPT in
 			A) OPT_ALL=1;;
 			a)
@@ -81,6 +83,7 @@ _getopts() {
 			r) OPT_README=1;;
 			S) OPT_SKELETON=1;;
 			s) echo "$SHORT_DESCRIPTION"; exit 0;;
+			t) OPT_TEST=1;;
 			v) echo "$VERSION"; exit 0;;
 
 			\?)
@@ -126,9 +129,10 @@ _getopts() {
 					render-readme) OPT_README=1;;
 					sync-skeleton) OPT_SKELETON=1;;
 					short-description) echo "$SHORT_DESCRIPTION"; exit 0;;
+					test) OPT_TEST=1;;
 					version) echo "$VERSION"; exit 0;;
 
-					sync-dependencies*|help*|render-readme*|sync-skeleton*|short-description*|version*)
+					sync-dependencies*|help*|render-readme*|sync-skeleton*|short-description*|test*|version*)
 						echo "No argument allowed for the option “--$OPTARG”!" >&2
 						exit 4
 						;;
@@ -282,6 +286,39 @@ EOF
 	cat README.md
 }
 
+_run_tests() {
+	# bash_unit
+	if ls test/*.bash_unit > /dev/null 2>&1; then
+		echo "
+Running bash_unit tests:"
+		./test/lib/bash_unit test/*.bash_unit
+		RETURN_BASH_UNIT=$?
+	else
+		RETURN_BASH_UNIT=0
+	fi
+
+	# bats
+	if ls test/*.bats > /dev/null 2>&1; then
+		echo "
+Running bats tests:"
+		./test/lib/bats/bats test
+		## or:
+		# bats test
+		RETURN_BATS=$?
+	else
+		RETURN_BATS=0
+	fi
+
+
+	if [ 0 -eq "$RETURN_BASH_UNIT" ] && [ 0 -eq "$RETURN_BATS" ] ; then
+		echo 'All tests pass!'
+		exit 0
+	else
+		echo 'Some tests fail!'
+		exit 1
+	fi
+}
+
 ## This SEPARATOR is required for test purposes. Please don’t remove! ##
 
 _getopts $@
@@ -307,9 +344,8 @@ cat <<EOF
     ==' '==
 EOF
 
-[ "$OPT_ALL" = 1 ] && _sync_all
-[ "$OPT_DEPENDENCIES" = 1 ] && _sync_dependencies
-[ "$OPT_README" = 1 ] && _render_readme
-[ "$OPT_SKELETON" = 1 ] && _sync_skeleton
-
-exit 0
+if [ "$OPT_ALL" = 1 ]; then _sync_all; fi
+if [ "$OPT_DEPENDENCIES" = 1 ]; then _sync_dependencies; fi
+if [ "$OPT_README" = 1 ]; then _render_readme; fi
+if [ "$OPT_SKELETON" = 1 ]; then _sync_skeleton; fi
+if [ "$OPT_TEST" = 1 ]; then _run_tests; fi

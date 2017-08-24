@@ -221,7 +221,7 @@ _sync_dependencies() {
 
 	_get test/lib/bash_unit pgrange/bash_unit/master/bash_unit
 	_get test/lib/test-helper.sh JosefFriedrich-shell/test-helper.sh/master/test-helper.sh
-	cp skeleton.sh test/lib/skeleton.sh
+	cp -f skeleton.sh test/lib/skeleton.sh
 
 	rm -rf tmp_bats
 	rm -rf test/lib/bats
