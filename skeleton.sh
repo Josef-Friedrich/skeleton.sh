@@ -344,8 +344,22 @@ cat <<EOF
     ==' '==
 EOF
 
-if [ "$OPT_ALL" = 1 ]; then _sync_all; fi
-if [ "$OPT_DEPENDENCIES" = 1 ]; then _sync_dependencies; fi
-if [ "$OPT_README" = 1 ]; then _render_readme; fi
-if [ "$OPT_SKELETON" = 1 ]; then _sync_skeleton; fi
-if [ "$OPT_TEST" = 1 ]; then _run_tests; fi
+if [ "$OPT_ALL" = 1 ] ; then
+	 _sync_all
+fi
+
+if [ "$OPT_DEPENDENCIES" = 1 ] ; then
+	_sync_dependencies
+fi
+
+if [ "$OPT_README" = 1 ] ; then
+	_render_readme
+fi
+
+if [ "$OPT_SKELETON" = 1 ] ; then
+	 _sync_skeleton;
+fi
+
+if [ "$OPT_TEST" = 1 ] ; then
+	_run_tests
+fi
