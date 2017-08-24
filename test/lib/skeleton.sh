@@ -29,7 +29,7 @@ PROJECT_PAGES="https://github.com/JosefFriedrich-shell/skeleton"
 SHORT_DESCRIPTION='This is the management script of the skeleton.sh project!'
 USAGE="$(basename "$0") v$VERSION
 
-Usage: $(basename "$0") [-AdhrSsv]
+Usage: $(basename "$0") [-AdhrSstv]
 
 $SHORT_DESCRIPTION
 
@@ -203,13 +203,13 @@ _sync_skeleton() {
 	_getx test/lib/bats/bats-format-tap-stream
 	_getx test/lib/bats/bats-preprocess
 	_getx test/lib/skeleton.sh
-	_getx test/lib/test-runner.sh
 
 	_rm README.md.template.sh
 	_rm sync-skeleton.sh
 	_rm test.sh
 	_rm test/bash_unit
 	_rm test/lib/render-readme.sh
+	_rm test/lib/test-runner.sh
 	_rm test/test-helper.sh
 }
 
@@ -221,6 +221,7 @@ _sync_dependencies() {
 
 	_get test/lib/bash_unit pgrange/bash_unit/master/bash_unit
 	_get test/lib/test-helper.sh JosefFriedrich-shell/test-helper.sh/master/test-helper.sh
+	rm -f test/lib/skeleton.sh
 	cp skeleton.sh test/lib/skeleton.sh
 
 	rm -rf tmp_bats
@@ -344,8 +345,22 @@ cat <<EOF
     ==' '==
 EOF
 
-if [ "$OPT_ALL" = 1 ]; then _sync_all; fi
-if [ "$OPT_DEPENDENCIES" = 1 ]; then _sync_dependencies; fi
-if [ "$OPT_README" = 1 ]; then _render_readme; fi
-if [ "$OPT_SKELETON" = 1 ]; then _sync_skeleton; fi
-if [ "$OPT_TEST" = 1 ]; then _run_tests; fi
+if [ "$OPT_ALL" = 1 ] ; then
+	 _sync_all
+fi
+
+if [ "$OPT_DEPENDENCIES" = 1 ] ; then
+	_sync_dependencies
+fi
+
+if [ "$OPT_README" = 1 ] ; then
+	_render_readme
+fi
+
+if [ "$OPT_SKELETON" = 1 ] ; then
+	 _sync_skeleton;
+fi
+
+if [ "$OPT_TEST" = 1 ] ; then
+	_run_tests
+fi
