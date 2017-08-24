@@ -203,13 +203,13 @@ _sync_skeleton() {
 	_getx test/lib/bats/bats-format-tap-stream
 	_getx test/lib/bats/bats-preprocess
 	_getx test/lib/skeleton.sh
-	_getx test/lib/test-runner.sh
 
 	_rm README.md.template.sh
 	_rm sync-skeleton.sh
 	_rm test.sh
 	_rm test/bash_unit
 	_rm test/lib/render-readme.sh
+	_rm test/lib/test-runner.sh
 	_rm test/test-helper.sh
 }
 
