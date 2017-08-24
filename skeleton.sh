@@ -29,7 +29,7 @@ PROJECT_PAGES="https://github.com/JosefFriedrich-shell/skeleton"
 SHORT_DESCRIPTION='This is the management script of the skeleton.sh project!'
 USAGE="$(basename "$0") v$VERSION
 
-Usage: $(basename "$0") [-AdhrSsv]
+Usage: $(basename "$0") [-AdhrSstv]
 
 $SHORT_DESCRIPTION
 
