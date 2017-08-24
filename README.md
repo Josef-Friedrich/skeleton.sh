@@ -46,6 +46,8 @@ Options:
 	  boilerplate files (e. g. Makefile test/lib/skeleton.sh)
 	-s, --short-description
 	  Show a short description / summary
+	-t, --test
+	  Run the tests located in the “test” folder.
 	-v, --version
 	  Show the version number of this script.
 

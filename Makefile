@@ -7,7 +7,7 @@ test:
 	@echo "PWD: $(shell pwd)"
 	@echo
 
-	./test/lib/test-runner.sh
+	./test/lib/skeleton.sh --test
 
 readme:
 	./test/lib/skeleton.sh --render-readme
