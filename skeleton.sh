@@ -25,7 +25,7 @@
 
 FIRST_RELEASE=2017-08-13
 VERSION=1.0
-PROJECT_PAGES="https://github.com/JosefFriedrich-shell/skeleton"
+PROJECT_PAGES="https://github.com/JosefFriedrich-shell/skeleton.sh"
 SHORT_DESCRIPTION='This is the management script of the skeleton.sh project!'
 USAGE="$(basename "$0") v$VERSION
 
