@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/JosefFriedrich-shell/skeleton.sh.svg?branch=master)](https://travis-ci.org/JosefFriedrich-shell/skeleton.sh)
+[![Build Status](https://travis-ci.org/JosefFriedrich-shell/skeleton.svg?branch=master)](https://travis-ci.org/JosefFriedrich-shell/skeleton)
 
-# skeleton.sh
+# skeleton
 
 ---
 
@@ -27,7 +27,7 @@ mollit anim id est laborum.
 ```
 skeleton.sh v1.0
 
-Usage: skeleton.sh [-AdhrSsv]
+Usage: skeleton.sh [-AdhrSstv]
 
 This is the management script of the skeleton.sh project!
 
