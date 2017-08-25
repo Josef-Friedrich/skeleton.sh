@@ -66,6 +66,7 @@ Options:
 	  Show the version number of this script.
 
 ```
+
 ## Testing
 
 ```
