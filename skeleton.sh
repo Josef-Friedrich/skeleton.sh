@@ -269,6 +269,7 @@ EOF
 EOF
 	echo "$USAGE" >> README.md
 	echo '```'  >> README.md
+	echo >> README.md
 
 	### TESTING ####################################################
 
