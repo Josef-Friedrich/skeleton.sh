@@ -136,7 +136,7 @@ _getopts() {
 						break
 						;;
 
-					*) echo "Invalid option “--$OPTARG”!" >&2; exit 2 ;;
+					*) echo "Invalid option “--$OPTARG”!" >&2 ; exit 2 ;;
 
 				esac
 				;;
@@ -338,22 +338,22 @@ cat <<EOF
     ==' '==
 EOF
 
-if [ "$OPT_ALL" = 1 ] ; then
+if [ "$OPT_ALL" -eq 1 ] ; then
 	 _sync_all
 fi
 
-if [ "$OPT_DEPENDENCIES" = 1 ] ; then
+if [ "$OPT_DEPENDENCIES" -eq 1 ] ; then
 	_sync_dependencies
 fi
 
-if [ "$OPT_README" = 1 ] ; then
+if [ "$OPT_README" -eq 1 ] ; then
 	_render_readme
 fi
 
-if [ "$OPT_SKELETON" = 1 ] ; then
+if [ "$OPT_SKELETON" -eq 1 ] ; then
 	 _sync_skeleton;
 fi
 
-if [ "$OPT_TEST" = 1 ] ; then
+if [ "$OPT_TEST" -eq 1 ] ; then
 	_run_tests
 fi
