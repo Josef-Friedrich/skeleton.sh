@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/JosefFriedrich-shell/skeleton.svg?branch=master)](https://travis-ci.org/JosefFriedrich-shell/skeleton)
+[![Build Status](https://travis-ci.org/JosefFriedrich-shell/skeleton.sh.svg?branch=master)](https://travis-ci.org/JosefFriedrich-shell/skeleton.sh)
 
-# skeleton
+# skeleton.sh
 
 ---
 
