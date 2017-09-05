@@ -80,23 +80,16 @@ _getopts() {
 				OPT_CHARLIE=1
 				;;
 
-			d) OPT_DEPENDENCIES=1;;
-			h) echo "$USAGE"; exit 0;;
-			r) OPT_README=1;;
-			S) OPT_SKELETON=1;;
-			s) echo "$SHORT_DESCRIPTION"; exit 0;;
+			d) OPT_DEPENDENCIES=1 ;;
+			h) echo "$USAGE" ; exit 0 ;;
+			r) OPT_README=1 ;;
+			S) OPT_SKELETON=1 ;;
+			s) echo "$SHORT_DESCRIPTION" ; exit 0 ;;
 			t) OPT_TEST=1;;
-			v) echo "$VERSION"; exit 0;;
+			v) echo "$VERSION" ; exit 0 ;;
 
-			\?)
-				echo "Invalid option “-$OPTARG”!" >&2
-				exit 2
-				;;
-
-			:)
-				echo "Option “-$OPTARG” requires an argument!" >&2
-				exit 3
-				;;
+			\?) echo "Invalid option “-$OPTARG”!" >&2 ; exit 2 ;;
+			:) echo "Option “-$OPTARG” requires an argument!" >&2 ; exit 3 ;;
 
 			-)
 				LONG_OPTARG="${OPTARG#*=}"
@@ -127,12 +120,12 @@ _getopts() {
 						exit 3
 						;;
 
-					help) echo "$USAGE"; exit 0;;
-					render-readme) OPT_README=1;;
-					sync-skeleton) OPT_SKELETON=1;;
-					short-description) echo "$SHORT_DESCRIPTION"; exit 0;;
-					test) OPT_TEST=1;;
-					version) echo "$VERSION"; exit 0;;
+					help) echo "$USAGE" ; exit 0 ;;
+					render-readme) OPT_README=1 ;;
+					sync-skeleton) OPT_SKELETON=1 ;;
+					short-description) echo "$SHORT_DESCRIPTION" ; exit 0 ;;
+					test) OPT_TEST=1 ;;
+					version) echo "$VERSION" ; exit 0 ;;
 
 					sync-dependencies*|help*|render-readme*|sync-skeleton*|short-description*|test*|version*)
 						echo "No argument allowed for the option “--$OPTARG”!" >&2
@@ -143,10 +136,7 @@ _getopts() {
 						break
 						;;
 
-					*)
-						echo "Invalid option “--$OPTARG”!" >&2
-						exit 2
-						;;
+					*) echo "Invalid option “--$OPTARG”!" >&2; exit 2 ;;
 
 				esac
 				;;
