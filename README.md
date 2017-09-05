@@ -39,9 +39,9 @@ skeleton.sh
 ## Usage
 
 ```
-skeleton.sh v1.0
+skeleton v1.0
 
-Usage: skeleton.sh [-AdhrSstv]
+Usage: skeleton [-AdhrSstv]
 
 This is the management script of the skeleton.sh project!
 
