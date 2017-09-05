@@ -95,7 +95,7 @@ _getopts() {
 				LONG_OPTARG="${OPTARG#*=}"
 
 				case $OPTARG in
-					sync-all) OPT_ALL=1;;
+					sync-all) OPT_ALL=1 ;;
 					alpha)
 						OPT_ALPHA=1
 						;;
@@ -108,7 +108,7 @@ _getopts() {
 						OPT_CHARLIE=1
 						;;
 
-					sync-dependencies) OPT_DEPENDENCIES=1;;
+					sync-dependencies) OPT_DEPENDENCIES=1 ;;
 
 					alpha*|charlie*)
 						echo "No argument allowed for the option “--$OPTARG”!" >&2
@@ -132,10 +132,7 @@ _getopts() {
 						exit 4
 						;;
 
-					'')	# "--" terminates argument processing
-						break
-						;;
-
+					'') break ;; # "--" terminates argument processing
 					*) echo "Invalid option “--$OPTARG”!" >&2 ; exit 2 ;;
 
 				esac
