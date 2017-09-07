@@ -67,6 +67,10 @@ Options:
 
 ```
 
+## Project pages
+
+* https://github.com/JosefFriedrich-shell/skeleton.sh
+
 ## Testing
 
 ```
