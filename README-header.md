@@ -2,6 +2,15 @@
 
 # README-header.md
 
+## Get `skeleton.sh`
+
+```sh
+mkdir -p test/lib
+wget -O test/lib/skeleton.sh https://raw.githubusercontent.com/JosefFriedrich-shell/skeleton.sh/master/skeleton.sh
+chmod a+x test/lib/skeleton.sh
+./test/lib/skeleton.sh --sync-skeleton
+```
+
 ## Folder structure
 
 ```
