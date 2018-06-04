@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/JosefFriedrich-shell/skeleton.sh.svg?branch=master)](https://travis-ci.org/JosefFriedrich-shell/skeleton.sh)
+[![Build Status](https://travis-ci.org/Josef-Friedrich/skeleton.sh.svg?branch=master)](https://travis-ci.org/Josef-Friedrich/skeleton.sh)
 
 # skeleton.sh
 
@@ -69,7 +69,7 @@ Options:
 
 ## Project pages
 
-* https://github.com/JosefFriedrich-shell/skeleton.sh
+* https://github.com/Josef-Friedrich/skeleton.sh
 
 ## Testing
 
