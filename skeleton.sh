@@ -160,7 +160,7 @@ _sync_all() {
 _sync_skeleton() {
 	_get() {
 		mkdir -p "$(dirname "$1")"
-		wget -O "$1" "https://raw.githubusercontent.com/Josef-Friedrich/skeleton/master/$1"
+		wget -O "$1" "https://raw.githubusercontent.com/Josef-Friedrich/skeleton.sh/master/$1"
 	}
 
 	_getx() {
