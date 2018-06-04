@@ -6,6 +6,15 @@
 
 # README-header.md
 
+## Get `skeleton.sh`
+
+```sh
+mkdir -p test/lib
+wget -O test/lib/skeleton.sh https://raw.githubusercontent.com/Josef-Friedrich/skeleton.sh/master/skeleton.sh
+chmod a+x test/lib/skeleton.sh
+./test/lib/skeleton.sh --sync-skeleton
+```
+
 ## Folder structure
 
 ```
@@ -55,7 +64,7 @@ Options:
 	  Show this help message.
 	-r, --render-readme
 	  Render “README.md”.
-	-S, -sync-skeleton
+	-S, --sync-skeleton
 	  Sync your project with the skeleton project and update some
 	  boilerplate files (e. g. Makefile test/lib/skeleton.sh).
 	-s, --short-description
